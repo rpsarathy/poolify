@@ -23,5 +23,7 @@ services:
         sync: false
       - key: JWT_REFRESH_SECRET
         sync: false
+      - key: API_URL
+        sync: false
       - key: CLIENT_URL
         sync: false
