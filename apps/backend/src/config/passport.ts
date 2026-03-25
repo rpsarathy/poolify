@@ -34,7 +34,7 @@ passport.use(
           { upsert: true, new: true }
         );
 
-        return done(null, user);
+        return done(null, user as any);
       } catch (err) {
         return done(err as Error, undefined);
       }

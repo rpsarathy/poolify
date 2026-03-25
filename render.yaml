@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: poolify-api
+    runtime: node
+    plan: free
+    rootDir: .
+    buildCommand: npm install && npm run build:shared && npm run build:backend
+    startCommand: npm run start --workspace=apps/backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: MATCHING_PROVIDER
+        value: geo
+      - key: MONGODB_URI
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_REFRESH_SECRET
+        sync: false
+      - key: CLIENT_URL
+        sync: false

@@ -51,7 +51,7 @@ export function buildCorridorPolygon(
   origin: [number, number],
   destination: [number, number],
   bufferDeg = 0.009
-): GeoJSON.Polygon {
+): { type: 'Polygon'; coordinates: [number, number][][] } {
   const minLng = Math.min(origin[0], destination[0]) - bufferDeg;
   const maxLng = Math.max(origin[0], destination[0]) + bufferDeg;
   const minLat = Math.min(origin[1], destination[1]) - bufferDeg;

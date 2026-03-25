@@ -1,13 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { verifyAccessToken, JwtPayload } from '../utils/jwt';
-
-declare global {
-  namespace Express {
-    interface Request {
-      user?: JwtPayload;
-    }
-  }
-}
+import { verifyAccessToken } from '../utils/jwt';
+// Type augmentation is in types/express.d.ts
 
 export function authenticate(req: Request, res: Response, next: NextFunction): void {
   const authHeader = req.headers.authorization;

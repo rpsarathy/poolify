@@ -2,7 +2,9 @@ import { z } from 'zod';
 import dotenv from 'dotenv';
 import path from 'path';
 
+// Load .env for local dev; on Render, env vars are set in the dashboard
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+dotenv.config(); // Also check working directory
 
 const envSchema = z.object({
   MONGODB_URI: z.string().min(1, 'MONGODB_URI is required'),
