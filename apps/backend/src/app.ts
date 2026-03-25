@@ -27,6 +27,11 @@ export function createApp() {
   // Body parsing
   app.use(express.json());
 
+  // Root
+  app.get('/', (_req, res) => {
+    res.json({ name: 'Poolify API', version: '1.0.0', health: '/api/health' });
+  });
+
   // Health check (no auth)
   app.get('/api/health', (_req, res) => {
     res.json({ status: 'ok', db: getDBStatus(), env: env.NODE_ENV });
